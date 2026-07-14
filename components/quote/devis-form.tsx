@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Trash2, Send, CheckCircle2, Plus, Minus } from 'lucide-react'
+import { Trash2, Send, CheckCircle2, Plus, Minus, AlertCircle } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -9,20 +9,65 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { useQuoteCart } from '@/components/quote/quote-cart-provider'
+import { submitQuoteRequest, ApiError } from '@/lib/api'
 
 export function DevisForm() {
   const { items, removeItem, updateQuantity, clear } = useQuoteCart()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
+    if (items.length === 0) {
+      setError('Ajoutez au moins un produit à votre sélection avant d\'envoyer la demande.')
+      return
+    }
+
     setLoading(true)
-    // Simulate submission (wire to API endpoint /quotes when backend is available)
-    await new Promise((r) => setTimeout(r, 900))
-    setLoading(false)
-    setSubmitted(true)
-    clear()
+    setError(null)
+
+    const form = new FormData(e.currentTarget)
+    const get = (key: string) => {
+      const value = form.get(key)
+      return typeof value === 'string' && value.trim() !== '' ? value.trim() : undefined
+    }
+
+    // L'API attend first_name/last_name séparément : on découpe le champ "Nom complet".
+    const fullName = get('name') ?? ''
+    const [firstName, ...rest] = fullName.split(' ')
+    const lastName = rest.length > 0 ? rest.join(' ') : firstName
+
+    // Le champ "secteur" n'existe pas dans le contrat API : on l'intègre au commentaire.
+    const commentParts = [
+      get('sector') ? `Secteur d'activité : ${get('sector')}` : null,
+      get('message') ?? null,
+    ].filter(Boolean)
+
+    try {
+      await submitQuoteRequest({
+        first_name: firstName,
+        last_name: lastName,
+        company: get('company'),
+        phone: get('phone')!,
+        email: get('email')!,
+        city: get('city'),
+        comment: commentParts.length > 0 ? commentParts.join('\n\n') : undefined,
+        items: items.map((i) => ({ product_id: i.product_id, quantity: i.quantity })),
+      })
+
+      setSubmitted(true)
+      clear()
+    } catch (err) {
+      setError(
+        err instanceof ApiError
+          ? err.message
+          : "Une erreur est survenue lors de l'envoi. Merci de réessayer.",
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -64,6 +109,14 @@ export function DevisForm() {
               placeholder="Décrivez votre projet, vos contraintes, votre budget indicatif..."
             />
           </div>
+
+          {error && (
+            <div className="mt-4 flex items-start gap-2 rounded-lg bg-destructive/10 p-3 text-sm text-destructive">
+              <AlertCircle className="mt-0.5 size-4 shrink-0" />
+              <span>{error}</span>
+            </div>
+          )}
+
           <Button type="submit" variant="cta" size="xl" className="mt-6 w-full" disabled={loading}>
             {loading ? 'Envoi en cours...' : (<>Envoyer ma demande <Send className="size-4" /></>)}
           </Button>

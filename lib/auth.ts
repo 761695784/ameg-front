@@ -1,18 +1,9 @@
-import { API_URL, API_ROOT, ApiError } from './api'
+import { API_URL, ApiError, getCookie, ensureCsrfCookie } from './api'
 
 export interface AdminUser {
   id: number
   name: string
   email: string
-}
-
-function getCookie(name: string): string | null {
-  const match = document.cookie.match(new RegExp(`(^|; )${name}=([^;]*)`))
-  return match ? decodeURIComponent(match[2]) : null
-}
-
-async function ensureCsrfCookie() {
-  await fetch(`${API_ROOT}/sanctum/csrf-cookie`, { credentials: 'include' })
 }
 
 export async function loginAdmin(email: string, password: string): Promise<AdminUser> {
@@ -39,6 +30,7 @@ export async function loginAdmin(email: string, password: string): Promise<Admin
 }
 
 export async function logoutAdmin(): Promise<void> {
+  await ensureCsrfCookie()
   await fetch(`${API_URL}/logout`, {
     method: 'POST',
     credentials: 'include',

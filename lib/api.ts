@@ -181,6 +181,23 @@ export async function getRealisations(sector?: string): Promise<Realisation[]> {
 }
 
 // ---------------------------------------------------------------------------
+// CSRF (Sanctum SPA) — nécessaire avant TOUTE requête POST/PUT/DELETE,
+// même vers des routes publiques (contact, devis, étude de projet), car
+// `statefulApi()` fait passer toutes les requêtes par la protection CSRF
+// de Laravel, indépendamment de l'authentification.
+// ---------------------------------------------------------------------------
+
+export function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null
+  const match = document.cookie.match(new RegExp(`(^|; )${name}=([^;]*)`))
+  return match ? decodeURIComponent(match[2]) : null
+}
+
+export async function ensureCsrfCookie(): Promise<void> {
+  await fetch(`${API_ROOT}/sanctum/csrf-cookie`, { credentials: 'include' })
+}
+
+// ---------------------------------------------------------------------------
 // Mutations (POST) — formulaires publics
 // ---------------------------------------------------------------------------
 
@@ -196,6 +213,9 @@ export class ApiError extends Error {
 }
 
 async function apiPost<T>(path: string, body: unknown): Promise<T> {
+  // Récupère (ou rafraîchit) le cookie CSRF avant chaque envoi.
+  await ensureCsrfCookie()
+
   const isFormData = body instanceof FormData
 
   const res = await fetch(`${API_URL}${path}`, {
@@ -204,6 +224,7 @@ async function apiPost<T>(path: string, body: unknown): Promise<T> {
     headers: {
       Accept: 'application/json',
       ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
+      'X-XSRF-TOKEN': getCookie('XSRF-TOKEN') ?? '',
     },
     body: isFormData ? body : JSON.stringify(body),
   })
