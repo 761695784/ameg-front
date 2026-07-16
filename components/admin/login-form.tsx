@@ -1,24 +1,42 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { Eye, EyeOff, LogIn, Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { loginAdmin } from '@/lib/auth'
+import { ApiError } from '@/lib/api'
 
 export function AdminLoginForm() {
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(null)
     setLoading(true)
-    // Placeholder: wire to the Laravel/Sanctum admin auth endpoint when available.
-    await new Promise((r) => setTimeout(r, 900))
-    setLoading(false)
-    setError("Connexion à l'espace d'administration bientôt disponible.")
+
+    const form = new FormData(e.currentTarget)
+    const email = form.get('email') as string
+    const password = form.get('password') as string
+
+    try {
+      await loginAdmin(email, password)
+      router.replace('/admin')
+      router.refresh()
+    } catch (err) {
+      setError(
+        err instanceof ApiError
+          ? 'Adresse email ou mot de passe incorrect.'
+          : "Impossible de se connecter. Vérifiez votre connexion et réessayez.",
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -51,7 +69,7 @@ export function AdminLoginForm() {
       </div>
 
       {error && (
-        <p className="rounded-lg bg-orange/10 px-4 py-3 text-sm text-orange" role="alert">
+        <p className="rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive" role="alert">
           {error}
         </p>
       )}

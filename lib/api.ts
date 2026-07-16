@@ -287,3 +287,15 @@ export interface ContactMessagePayload {
 export async function submitContactMessage(payload: ContactMessagePayload) {
   return apiPost('/contact-messages', payload)
 }
+
+// Normalise la pagination : gère à la fois {data, meta:{...}} et le format
+// par défaut de Laravel où les champs sont directement à la racine.
+export function paginationMeta(p: any): { current_page: number; last_page: number; per_page: number; total: number } {
+  if (p?.meta) return p.meta
+  return {
+    current_page: p?.current_page ?? 1,
+    last_page: p?.last_page ?? 1,
+    per_page: p?.per_page ?? (p?.data?.length ?? 0),
+    total: p?.total ?? (p?.data?.length ?? 0),
+  }
+}

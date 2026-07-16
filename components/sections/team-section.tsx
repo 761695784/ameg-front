@@ -17,7 +17,8 @@ export function TeamSection({
   description = "Une équipe pluridisciplinaire qui connaît les contraintes du terrain et vous accompagne à chaque étape.",
   members,
   className,
-}: {
+}:
+ {
   eyebrow?: string
   title?: string
   description?: string

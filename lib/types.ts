@@ -119,3 +119,71 @@ export interface Realisation {
   cover_image?: string | null
   images?: { path: string; alt_text?: string | null }[]
 }
+
+export type RequestStatus = 'nouveau' | 'en_cours' | 'traite'
+export type ContactStatus = 'nouveau' | 'lu' | 'traite'
+
+export interface AdminUser {
+  id: number
+  name: string
+  email: string
+}
+
+export interface QuoteRequestItem {
+  id: number
+  product_id: number | null
+  product_reference: string
+  product_name: string
+  quantity: number
+}
+
+export interface QuoteRequest {
+  id: number
+  first_name: string
+  last_name: string
+  company?: string | null
+  phone: string
+  email: string
+  city?: string | null
+  comment?: string | null
+  status: RequestStatus
+  admin_reply?: string | null
+  replied_at?: string | null
+  created_at: string
+  items?: QuoteRequestItem[]
+}
+
+export interface ProjectStudyDocument {
+  id: number
+  original_name: string
+  path: string
+}
+
+export interface ProjectStudyRequest {
+  id: number
+  name: string
+  company?: string | null
+  phone: string
+  email: string
+  city?: string | null
+  establishment_type?: string | null
+  description: string
+  estimated_budget?: string | null
+  desired_deadline?: string | null
+  status: RequestStatus
+  admin_reply?: string | null
+  replied_at?: string | null
+  created_at: string
+  documents?: ProjectStudyDocument[]
+}
+
+export interface ContactMessage {
+  id: number
+  name: string
+  email: string
+  phone?: string | null
+  subject?: string | null
+  message: string
+  status: ContactStatus
+  created_at: string
+}
