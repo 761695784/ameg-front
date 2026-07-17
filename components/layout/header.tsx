@@ -8,7 +8,7 @@ import { HeaderClient } from './header-client'
 // Coordonnées AMEG International — fixes, ne dépendent pas de l'API.
 const AMEG_CONTACT = {
   phone: '+221 33 825 39 00 / +221 76 604 31 91',
-  email: 'contactameginternational@gmail.com',
+  email: 'info@ameginternational.com',
 }
 
 export async function Header() {
@@ -34,7 +34,7 @@ export async function Header() {
               href={`mailto:${AMEG_CONTACT.email}`}
               className="inline-flex items-center gap-1.5 hover:text-turquoise"
             >
-              <Mail className="size-3.5" /> {AMEG_CONTACT.email}
+              <Mail className="size-3.5" /> {AMEG_CONTACT.email} 
             </a>
           </div>
           <p className="text-white/70">Équipements sans Exception en Afrique de l&apos;Ouest</p>
