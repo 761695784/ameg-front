@@ -5,7 +5,7 @@ import { HeroSection } from '@/components/sections/hero-section'
 import { CatalogueFilters } from '@/components/catalogue/catalogue-filters'
 import { CataloguePagination } from '@/components/catalogue/catalogue-pagination'
 import { ProductCard } from '@/components/catalogue/product-card'
-import { getBrands, getCategories, getProducts } from '@/lib/api'
+import { getBrands, getCategories, getProducts, paginationMeta } from '@/lib/api'
 import { CATEGORY_TAXONOMY } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ export default async function CataloguePage({
 
   const categories = liveCategories.length > 0 ? liveCategories : CATEGORY_TAXONOMY
   const products = result?.data ?? []
-  const meta = result?.meta
+  const meta = result ? paginationMeta(result) : null
 
   const activeCategory = params.category_id
     ? categories.find((c) => String(c.id) === params.category_id)
