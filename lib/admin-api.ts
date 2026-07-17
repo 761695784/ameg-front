@@ -168,7 +168,7 @@ export async function importCatalog(catalogFile: File, imagesZip?: File | null) 
   if (imagesZip) formData.append('images_zip', imagesZip)
 
   return adminRequest<{ message: string; report: CatalogImportReport }>(
-    '/admin/catalog-import',
+    '/catalog-import',
     'POST',
     formData,
   )
