@@ -431,7 +431,7 @@ export const DEMO_SERVICES: Service[] = [
 export const DEMO_REALISATIONS: Realisation[] = [
   {
     id: 1,
-    title: 'Cuisine centrale — Groupe Hôtelier Téranga',
+    title: 'Cuisine centrale — Groupe Hôtelier ',
     slug: 'cuisine-centrale-teranga',
     sector: 'hotels',
     location: 'Dakar, Sénégal',
@@ -442,8 +442,8 @@ export const DEMO_REALISATIONS: Realisation[] = [
   },
   {
     id: 2,
-    title: 'Restaurant Le Baobab',
-    slug: 'restaurant-le-baobab',
+    title: 'Restaurant gastronomique',
+    slug: 'restaurant-gastronomique',
     sector: 'restaurants',
     location: 'Dakar, Sénégal',
     short_description:
@@ -453,7 +453,7 @@ export const DEMO_REALISATIONS: Realisation[] = [
   },
   {
     id: 3,
-    title: 'Boulangerie du Plateau',
+    title: 'Boulangerie ',
     slug: 'boulangerie-du-plateau',
     sector: 'boulangeries',
     location: 'Dakar, Sénégal',
@@ -464,8 +464,8 @@ export const DEMO_REALISATIONS: Realisation[] = [
   },
   {
     id: 4,
-    title: 'Fast-food Chez Fatou',
-    slug: 'fast-food-chez-fatou',
+    title: 'Fast-food ',
+    slug: 'fast-food-saly',
     sector: 'fast_foods',
     location: 'Thiès, Sénégal',
     short_description:
@@ -475,8 +475,8 @@ export const DEMO_REALISATIONS: Realisation[] = [
   },
   {
     id: 5,
-    title: 'Cantine scolaire — Collectivité de Rufisque',
-    slug: 'cantine-rufisque',
+    title: 'Cantine scolaire',
+    slug: 'cantine-scolaire',
     sector: 'collectivites',
     location: 'Rufisque, Sénégal',
     short_description:
@@ -486,8 +486,8 @@ export const DEMO_REALISATIONS: Realisation[] = [
   },
   {
     id: 6,
-    title: 'Bar-lounge Le Comptoir',
-    slug: 'bar-lounge-le-comptoir',
+    title: 'Bar',
+    slug: 'bar',
     sector: 'restaurants',
     location: 'Saly, Sénégal',
     short_description:

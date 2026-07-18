@@ -8,12 +8,21 @@ import { Reveal } from '@/components/ui/reveal'
 import { storageUrl } from '@/lib/api'
 
 const FEATURED_SLUGS = [
-  'cuisson-professionnelle',
-  'froid-professionnel',
-  'boulangerie-patisserie',
-  'laverie-hygiene',
-  'bar-cafe',
-  'ventilation-extraction',
+  'equipements-de-cuisson',
+  'equipements-frigorifiques',
+  'mobilier-inox',
+  'boulangerie',
+  'bar',
+  'chambres-froides',
+  'laverie',
+  'petit-materiel',
+  'patisserie',
+  'vaisselle-art-de-la-table',
+  'blanchisserie',
+  'consommables',
+  'accessoires',
+  'equipements-hoteliers',
+  'hygiene-entretien',
 ]
 
 export async function CategoriesShowcase() {

@@ -42,7 +42,7 @@ export default async function HomePage() {
       <ContentSection
         eyebrow="Notre showroom"
         title="Venez tester vos futurs équipements"
-        image="/images/showroom.jpg"
+        image="/images/Gallery.jpg"
         imageAlt="Showroom AMEG International"
         actions={
           <Button variant="cta" size="lg2" render={<Link href="/contact" />}>

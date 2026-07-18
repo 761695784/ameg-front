@@ -29,7 +29,7 @@ export default async function RealisationsPage({
         imageAlt="Réalisations AMEG International"
         eyebrow="Nos réalisations"
         title="Des projets livrés clés en main"
-        subtitle="Plus de 1200 établissements équipés. Explorez nos installations par secteur d'activité."
+        subtitle="Plusieurs établissements équipés. Explorez nos installations par secteur d'activité."
         breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'Réalisations' }]}
       />
 

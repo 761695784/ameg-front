@@ -222,9 +222,9 @@ export const NAV_LINKS = [
 ]
 
 export const HOME_STATS = [
-  { value: 15, suffix: '+', label: "Années d'expérience" },
-  { value: 1200, suffix: '+', label: 'Projets réalisés' },
-  { value: 40, suffix: '+', label: 'Marques partenaires' },
+  { value: 5, suffix: '+', label: "Années d'expérience" },
+  { value: 500, suffix: '+', label: 'Projets réalisés' },
+  { value: 50, suffix: '+', label: 'Marques partenaires' },
   { value: 6, suffix: '', label: 'Pays desservis' },
 ]
 
@@ -277,19 +277,19 @@ export const TESTIMONIALS = [
     quote:
       "AMEG a équipé notre cuisine centrale de A à Z. Étude sérieuse, matériel de qualité et installation impeccable.",
     author: 'Mariama Diallo',
-    role: 'Directrice, Groupe Hôtelier Téranga',
+    role: 'Directrice, Groupe Hôtelier',
   },
   {
     quote:
       'Un accompagnement de bout en bout pour notre boulangerie. Les fours livrés sont exactement ce qu\'il nous fallait.',
     author: 'Ibrahima Sow',
-    role: 'Gérant, Boulangerie du Plateau',
+    role: 'Gérant Boulangerie',
   },
   {
     quote:
       'Réactifs sur le SAV et de bon conseil sur le froid professionnel. Un partenaire de confiance.',
     author: 'Awa Ndiaye',
-    role: 'Cheffe de cuisine, Restaurant Le Baobab',
+    role: 'Cheffe de cuisine',
   },
 ]
 
@@ -303,12 +303,20 @@ export const SECTOR_CARDS = [
 ]
 
 export const CATEGORY_IMAGES: Record<string, string> = {
-  'cuisson-professionnelle': '/images/cuisine-1.jpg',
-  'froid-professionnel': '/images/hero-accueil-2.jpg',
-  'boulangerie-patisserie': '/images/hero-accueil-1.jpg',
-  'laverie-hygiene': '/images/lave-vaisselle.jpg',
-  'blanchisserie': '/images/blanchisserie.jpg',
-  'bar-cafe': '/images/bar-3.jpg',
-  'ventilation-extraction': '/images/cuisine-2.jpg',
-  'mobilier-inox': '/images/labo.jpg',
+  'equipements-de-cuisson': '/images/categories/equipements-de-cuisson.jpg',
+  'equipements-frigorifiques': '/images/categories/equipements-frigorifiques.jpg',
+  'preparation-alimentaire': '/images/categories/preparation-alimentaire.jpg',
+  'boulangerie': '/images/categories/boulangerie.jpg',
+  'patisserie': '/images/categories/patisserie.jpg',
+  'bar': '/images/categories/bar.jpg',
+  'vaisselle-art-de-la-table': '/images/categories/vaisselle-art-de-la-table.jpg',
+  'mobilier-inox': '/images/categories/mobilier-inox.jpeg',
+  'laverie': '/images/categories/laverie.jpg',
+  'hygiene-entretien': '/images/categories/hygiene-entretien.jpg',
+  'equipements-hoteliers': '/images/categories/equipements-hoteliers.jpg',
+  'chambres-froides': '/images/categories/chambres-froides.jpg',
+  'petit-materiel': '/images/categories/petit-materiel.jpg',
+  'accessoires': '/images/categories/accessoires.jpg',
+  'consommables': '/images/categories/consommables.jpg',
+  'blanchisserie': '/images/categories/blanchisserie.jpg',
 }
