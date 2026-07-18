@@ -47,7 +47,7 @@ export default function AProposPage() {
         imageAlt="Cuisine professionnelle équipée par AMEG International"
         eyebrow="Notre entreprise"
         title="Votre partenaire en équipement de cuisine professionnelle"
-        subtitle="Depuis plus de 15 ans, AMEG International accompagne les professionnels de l'hôtellerie et de la restauration avec des équipements de qualité et une expertise technique reconnue."
+        subtitle="Depuis plus de 5 ans, AMEG International accompagne les professionnels de l'hôtellerie et de la restauration avec des équipements de qualité et une expertise technique reconnue."
         breadcrumbs={[{ label: 'Accueil', href: '/' }, { label: 'À propos' }]}
       />
 
@@ -71,7 +71,7 @@ export default function AProposPage() {
         }
       >
         <p>
-          AMEG International conçoit, fournit et installe des cuisines professionnelles complètes.
+          AMEG International fournit et installe des cuisines professionnelles complètes.
           Notre approche va bien au-delà de la simple vente de matériel : nous sommes un partenaire
           global qui vous accompagne sur toute la durée de vie de vos équipements.
         </p>
