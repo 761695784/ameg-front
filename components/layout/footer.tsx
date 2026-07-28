@@ -8,7 +8,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon } from '@/components/layout/s
 // Coordonnées AMEG International — fixes, ne dépendent pas de l'API.
 const AMEG_CONTACT = {
   phone: '33 825 39 00 / 76 604 31 91',
-  email: 'contactameginternational@gmail.com',
+  email: 'info@ameginternational.com',
   address: 'Dakar, POINT E Rue P-170, Sénégal',
 }
 

@@ -65,6 +65,17 @@ export function HeaderClient({
           {logo}
         </Link>
 
+      <nav className="hidden items-center gap-7 lg:flex" aria-label="Navigation principale">
+        <Link
+          href="/"
+          className={cn(
+            'py-2 text-sm font-medium transition-colors hover:text-turquoise',
+            pathname === '/' ? 'text-turquoise' : 'text-navy',
+          )}
+        >
+          Accueil
+        </Link>
+
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navigation principale">
           <MegaMenu categories={categories} />
           {SECONDARY_LINKS.map((link) => (
@@ -80,6 +91,7 @@ export function HeaderClient({
             </Link>
           ))}
         </nav>
+      </nav>
 
         <div className="flex items-center gap-1 sm:gap-2">
           <button
@@ -168,6 +180,17 @@ export function HeaderClient({
                 </Accordion>
 
                 <nav className="mt-2 flex flex-col divide-y" aria-label="Navigation mobile">
+                <Link
+                  href="/"
+                  onClick={() => setMobileOpen(false)}
+                  className={cn(
+                    'py-3 text-base font-medium transition-colors hover:text-turquoise',
+                    pathname === '/' ? 'text-turquoise font-semibold' : 'text-navy',
+                  )}
+                >
+                  Accueil
+                </Link>
+                <nav className="mt-2 flex flex-col divide-y" aria-label="Navigation mobile">
                   {SECONDARY_LINKS.map((link) => (
                     <Link
                       key={link.href}
@@ -178,6 +201,7 @@ export function HeaderClient({
                       {link.label}
                     </Link>
                   ))}
+                </nav>
                 </nav>
 
                 <Button variant="cta" size="xl" className="mt-6" render={<Link href="/devis" />} onClick={() => setMobileOpen(false)}>

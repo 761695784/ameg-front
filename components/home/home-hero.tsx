@@ -50,13 +50,15 @@ export function HomeHero() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
 
-      <div className="container-ameg relative flex min-h-[88vh] flex-col justify-center py-24 text-white">
+      {/* CHANGEMENT 1 : Réduction du padding haut (pt-12 ou pt-16 au lieu de py-24) */}
+      <div className="container-ameg relative flex min-h-[88vh] flex-col justify-center pb-20 pt-12 text-white">
         <div className="max-w-2xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur">
+          {/* <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur">
             <span className="size-1.5 rounded-full bg-orange" />
             Équipements CHR — Hôtellerie & Restauration
-          </span>
-          <h1 className="mt-6 text-pretty text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+          </span> */}
+
+          <h1 className="text-pretty text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
             Équipez votre cuisine professionnelle avec les meilleures marques
           </h1>
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-white/80">
