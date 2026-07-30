@@ -17,9 +17,9 @@ export function AdminTopbar({ user }: { user: AdminUser }) {
   return (
     <header className="flex h-16 items-center justify-between border-b bg-card px-3 sm:px-6 lg:px-8">
       {/* Logo visible sur mobile/tablette */}
-      <div className="font-heading text-base font-bold text-navy sm:text-lg lg:hidden">
+      {/* <div className="font-heading text-base font-bold text-navy sm:text-lg lg:hidden">
         AMEG <span className="text-orange">Admin</span>
-      </div>
+      </div> */}
 
       {/* Zone utilisateur + Déconnexion */}
       <div className="ml-auto flex items-center gap-2 sm:gap-4">
