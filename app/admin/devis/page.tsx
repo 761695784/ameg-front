@@ -18,12 +18,16 @@ export default function AdminQuoteRequestsPage() {
   }, [page])
 
   return (
-    <div>
-      <h1 className="font-heading text-2xl font-bold text-navy">Demandes de devis</h1>
-      <p className="mt-1 text-muted-foreground">Retrouve ici toutes les demandes envoyées depuis le site.</p>
+    <div className="w-full space-y-6">
+      <div>
+        <h1 className="font-heading text-xl font-bold text-navy sm:text-2xl">Demandes de devis</h1>
+        <p className="mt-1 text-xs text-muted-foreground sm:text-sm">Retrouve ici toutes les demandes envoyées depuis le site.</p>
+      </div>
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card">
-        <table className="w-full text-sm">
+      {/* overflow-x-auto active le défilement horizontal sur mobile */}
+      <div className="overflow-x-auto rounded-2xl border border-border bg-card">
+        {/* min-w-[700px] garantit que le tableau garde sa structure et déclenche le scroll */}
+        <table className="w-full min-w-[700px] text-sm">
           <thead className="border-b bg-muted/40 text-left text-xs uppercase text-muted-foreground">
             <tr>
               <th className="px-4 py-3">Client</th>

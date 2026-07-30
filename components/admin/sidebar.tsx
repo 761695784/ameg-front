@@ -16,7 +16,6 @@ import {
   Building2,
   Settings,
   Menu,
-  X,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -33,7 +32,7 @@ export const NAV_ITEMS = [
   { href: '/admin/messages', label: 'Messages', icon: Mail },
   { href: '/admin/services', label: 'Services', icon: Wrench },
   { href: '/admin/realisations', label: 'Réalisations', icon: Building2 },
-  { href: '/admin/parametres', label: 'Paramètres', icon: Settings },
+  // { href: '/admin/parametres', label: 'Paramètres', icon: Settings },
 ]
 
 function NavList({ onItemClick }: { onItemClick?: () => void }) {
@@ -91,14 +90,14 @@ export function AdminSidebar() {
       {/* 2. BOUTON MENU BURGER MOBILE (Uniquement visible sur < lg) */}
       <div className="fixed left-3 top-3 z-40 lg:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-         <SheetTrigger
-          render={
-            <Button variant="outline" size="icon" className="size-10 bg-card shadow-xs">
-              <Menu className="size-5 text-navy" />
-              <span className="sr-only">Ouvrir le menu navigation</span>
-            </Button>
-          }
-        />
+          <SheetTrigger
+            render={
+              <Button size="icon" className="size-10 bg-navy text-white hover:bg-navy/90 border-none shadow-md">
+                <Menu className="size-5 text-white" />
+                <span className="sr-only">Ouvrir le menu navigation</span>
+              </Button>
+            }
+          />
           
           <SheetContent side="left" className="w-72 p-0">
             <SheetHeader className="border-b p-4 text-left">

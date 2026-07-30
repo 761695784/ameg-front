@@ -25,7 +25,7 @@ export function AdminTopbar({ user }: { user: AdminUser }) {
       <div className="ml-auto flex items-center gap-2 sm:gap-4">
         {/* Masque "Connecté en tant que" sur très petit écran pour gagner de la place */}
         <span className="text-xs text-muted-foreground sm:text-sm">
-          <span className="hidden sm:inline">Connecté en tant que </span>
+          {/* <span className="hidden sm:inline">Connecté en tant que </span> */}
           <span className="font-medium text-navy">{user.name}</span>
         </span>
 
