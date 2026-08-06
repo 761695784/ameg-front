@@ -7,7 +7,7 @@ import { HeaderClient } from './header-client'
 
 // Coordonnées AMEG International — fixes, ne dépendent pas de l'API.
 const AMEG_CONTACT = {
-  phone: '+221 33 825 39 00 / +221 76 604 31 91',
+  phone: '+221 33 824 77 63 / +221 77 646 43 41',
   email: 'info@ameginternational.com',
 }
 
