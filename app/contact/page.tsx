@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 // Coordonnées AMEG International — fixes, ne dépendent pas de l'API.
 const AMEG_CONTACT = {
-  phone: '33 825 39 00 / 76 604 31 91',
+  phone: '33 824 77 63 / 77 646 43 41',
   email: 'info@ameginternational.com',
   address: 'Dakar, POINT E Rue P-170, Sénégal',
 }
