@@ -60,7 +60,15 @@ export default async function HomePage() {
         </p>
       </ContentSection>
       <PartnersSection brands={brands} />
-      <TestimonialsSection testimonials={TESTIMONIALS} />
+      <TestimonialsSection
+      testimonials={TESTIMONIALS}
+      partners={[
+        { name: 'Hôtel Terrou-Bi', logo: '/images/terrou-bi.jpg' },
+        { name: 'Hôtel King Fadh Palace', logo: '/images/king-fadh.jpg' },
+        { name: 'Hôtel Radisson Blu', logo: '/images/radisson-hotel.png' },
+        { name: 'Noom Hôtel', logo: '/images/noom.jpg' },
+      ]}
+      />
       <CTASection />
     </>
   )

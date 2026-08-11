@@ -222,8 +222,8 @@ export const NAV_LINKS = [
 ]
 
 export const HOME_STATS = [
-  { value: 5, suffix: '+', label: "Années d'expérience" },
-  { value: 500, suffix: '+', label: 'Projets réalisés' },
+  { value: 10, suffix: '+', label: "Années d'expérience" },
+  { value: 100, suffix: '+', label: 'Projets réalisés' },
   { value: 50, suffix: '+', label: 'Marques partenaires' },
   { value: 6, suffix: '', label: 'Pays desservis' },
 ]
