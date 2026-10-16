@@ -11,7 +11,7 @@ export const DEFAULT_SETTINGS: Required<
   Pick<Settings, 'whatsapp_number' | 'contact_email' | 'contact_phone' | 'address'>
 > &
   Settings = {
-  whatsapp_number: '221776464341',
+  whatsapp_number: '221711023889',
   contact_email: 'contact@ameginternational.com',
   contact_phone: '33 824 77 63 / 77 646 43 41',
   address: 'Dakar, POINT E Rue P-170, Sénégal',
